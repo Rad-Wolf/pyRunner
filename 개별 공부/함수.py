@@ -51,3 +51,23 @@
 
 # numbering(50,20,10)
 # numbering(10,20)
+
+# 지역변수 전역변수
+gun = 10
+
+def checkpoint(soldiers): # 경계근무
+    global gun # 전역 공간에 있는(위에 있는) gun 을 사용할 수 있음
+    gun = gun - soldiers # 오류 -> 여기서 사용하는 것은 지역에서만 사용 가능한 gun임!
+                         #         이전에 사용할 수 있는 변수를 따로 만들어줘야함
+    print("함수 내 남은 총 {0}".format(gun))
+
+def checkpoint_return(gun, soldiers): # 가장 이상적인 방법? 전역변수는 가급적 적게 쓰는게 좋음
+    gun = gun - soldiers
+    print(f"함수 내 남은 총 : {gun}")
+    return gun
+
+print(f"전체 총 : {gun}")
+checkpoint(2) # 2명이 근무를 나감
+print(f"전체 총 : {gun}")
+gun = checkpoint_return(gun,2) # 2명 복귀
+print(f"전체 총 : {gun}")
