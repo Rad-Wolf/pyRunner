@@ -27,3 +27,37 @@
 # gost = Unit("고스트",60,8)
 # gost.clocking = True # 클래스 외부에서 추가 확장이 가능함. 이것만 바뀜!
 # gost.Attack("1시")
+
+# 상속
+
+# 일반 유닛
+# class Unit:
+#     def __init__(self,name,hp):
+#         self.name = name
+#         self.hp = hp
+
+# 공격 유닛
+# class AttackUnit(Unit):
+#     def __init__(self, name, hp,damage):
+#         Unit.__init__(self,name,hp) # 이런식으로 초기화가 가능
+#         # super().__init__(name, hp) # 자동생성
+#         self.damage = damage
+
+# 다중 상속
+
+# class Unit:
+#     def __init__(self,name,hp):
+#         self.name = name
+#         self.hp = hp
+
+# class Flayable:
+#     def __init__(self, flying_speed):
+#         self.flying_speed = flying_speed
+    
+#     def fly(self,name,location):
+#         print(f"{name} : {location} 방향으로 날아갑니다. {self.flying_speed}")
+
+# class FlyableUnit(Unit,Flayable):
+#     def __init__ (self, name, hp, flying_speed):
+#         Unit.__init__(self,name,hp)
+#         Flayable.__init__(self,flying_speed)
