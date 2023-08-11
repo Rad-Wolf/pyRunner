@@ -61,3 +61,37 @@
 #     def __init__ (self, name, hp, flying_speed):
 #         Unit.__init__(self,name,hp)
 #         Flayable.__init__(self,flying_speed)
+
+# pass super
+
+class Unit:
+    def __init__(self,name,hp):
+        self.name = name
+        self.hp = hp
+    def Move(self,location):
+        print("[유닛 이동]")
+
+class GraundUnit(Unit):
+    def __init__(self,name,hp,move_speed):
+        Unit.__init__(self,name,hp)
+        self.move_speed = move_speed
+    def Move(self,location):
+        Unit.Move(self,location)
+        print(f"{self.name} : {location} 방향으로 지상 이동")
+
+class FlyableUnit(Unit):
+    def __init__ (self,name,hp,Flying_speed):
+        Unit.__init__(self,name,hp)
+        self.Flying_speed
+    def Move(self,location):
+        Unit.Move(self,location)
+        print(f"{self.name} : {location} 방향으로 공중 이동")
+
+# pass
+class building_Uni(Unit):
+    def __init__(self,name,hp,location):
+        pass # 우선 넘어감 -> 매서드를 바로 return 시킴?
+    def Move(self,location):
+        super().move(location) # Unit 대신 super로 바꿧는데 상위 클래스의 메서드 등을 쓸 수 있게 함
+        print("super()") # 다중상속의 경우 super를 썼다면? : 마지막에 써있는 상속 클레스를 의미하게 됨 # 다중 상속시 명시를 하는게 좋다.
+        
