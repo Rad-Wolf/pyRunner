@@ -8,5 +8,7 @@ except ValueError:
 except ZeroDivisionError as err: # 변수로 나오게 할 수도 있음
     print(f"{err} 0 에러")
 except :
-    print("알 수 없는 에러가 발생했습니다.")
+    print("알 수 없는 에러가 발생했습니다.") # 나머지 예외들
+except Exception as err:
+    print(f"{알 수 없는 에러가 발생했습니다. {err}}") # 나머지 예외를 이런식으로도 가능
 # 등등등의 에러를 표시할 수 있다.
